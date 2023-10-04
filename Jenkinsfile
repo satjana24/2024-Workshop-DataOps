@@ -25,6 +25,10 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
+                // Login to DockerHub
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                }
                 // Build the Docker image
                 sh 'docker build -t thaibigdata/cicd_for_realtime_data_pipeline:latest .'
                 
