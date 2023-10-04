@@ -11,6 +11,10 @@ pipeline {
 
         stage('Run Tests') {
             steps {
+                // Show the current directory
+                sh 'pwd'
+                // List the files in the test/ directory
+                sh 'ls -la test/'
                 // Run the unit tests
                 sh 'python3 -m unittest discover -s test/'
             }
