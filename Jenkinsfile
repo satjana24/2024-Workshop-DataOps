@@ -8,11 +8,11 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        #stage('Clean Workspace') {
+        #    steps {
+        #        cleanWs()
+        #    }
+        #}
         stage('Run Tests') {
             steps {
                 // Show the current directory
