@@ -27,16 +27,14 @@ pipeline {
             steps {
                 // Login to DockerHub
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh ''' 
-                    echo $DOCKER_PASSWORD | sudo -S docker login -u $DOCKER_USERNAME --password-stdin
-                    '''
-
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                 }
+
                 // Build the Docker image
-                sh 'sudo docker build -t thaibigdata/cicd_for_realtime_data_pipeline:latest .'
+                sh 'docker build -t thaibigdata/cicd_for_realtime_data_pipeline:latest .'
                 
                 // Push the Docker image to your registry
-                sh 'sudo docker push thaibigdata/cicd_for_realtime_data_pipeline:latest'
+                sh 'docker push thaibigdata/cicd_for_realtime_data_pipeline:latest'
             }
         }
     }
