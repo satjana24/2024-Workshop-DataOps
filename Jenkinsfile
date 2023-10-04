@@ -26,10 +26,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build the Docker image
-                sh 'docker build -t your_docker_repo_name/your_project_name:latest .'
+                sh 'docker build -t thaibigdata/cicd_for_realtime_data_pipeline:latest .'
                 
                 // Push the Docker image to your registry
-                sh 'docker push your_docker_repo_name/your_project_name:latest'
+                sh 'docker push thaibigdata/cicd_for_realtime_data_pipeline:latest'
             }
         }
     }
