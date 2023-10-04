@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Checkout') {
             steps {
                 // Pull latest code from the repository
