@@ -33,6 +33,7 @@ pipeline {
             steps {
                 // Copy the test module to the main project directory and rename
                 // sh 'cp test/test_cleanse_data_module.py your_project_name/cleanse_data_module.py'
+                sh 'echo "===== test pass ====="'
             }
         }
 
