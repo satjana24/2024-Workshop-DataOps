@@ -1,2 +1,4 @@
 # Jenkins-Terra-Docker-BeamFlow-Project
-batch#3
+
+Oct 11, 07:17 แก้ไข Jenkins โดยยกเลิกการทำ  pre-deployment
+
