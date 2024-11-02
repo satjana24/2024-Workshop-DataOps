@@ -1,11 +1,11 @@
 provider "google" {
-  credentials = file("focused-evening-397008-aa8085446fa3.json")
-  project     = "focused-evening-397008"
+  credentials = file("stately-gist-435602-u9-e7d9d76c1b6d.json")
+  project     = "stately-gist-435602-u9"
 }
 
 resource "google_storage_bucket" "bucket" {
   name          = "aekanun_workshop2"
-  location      = "US-CENTRAL1"
+  location      = "US-SOUTH1"
   force_destroy = true
 }
 

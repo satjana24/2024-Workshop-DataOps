@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Specify your BigQuery project ID and dataset.table name
 table_spec = (
-    'focused-evening-397008:'
+    'stately-gist-435602-u9:'
     'aekanun_workshop2.aekanun_dfsqltable_sales'
 )
 
@@ -19,7 +19,7 @@ schema = (
 
 # List of pipeline arguments; Adjust with your Google Cloud settings
 pipeline_args = [
-    '--project=focused-evening-397008',  # Change to your GCP project ID
+    '--project=stately-gist-435602-u9',  # Change to your GCP project ID
     '--runner=DataflowRunner',
     '--region=us-central1',  # Adjust as per your GCP region
     '--staging_location=gs://aekanun_workshop2/temp/staging/',  # Change to your bucket path
@@ -33,7 +33,7 @@ p = beam.Pipeline(options=pipeline_options)
 
 (p 
  | 'Read from PubSub' >> beam.io.ReadFromPubSub(
-     topic="projects/focused-evening-397008/topics/aekanun-transactions"  # Change to your PubSub topic
+     topic="projects/stately-gist-435602-u9/topics/aekanun-transactions"  # Change to your PubSub topic
  )
  | 'Cleanse Data' >> beam.Map(cleanse_data)  # Referencing the cleansing function
  | 'Write to BigQuery' >> beam.io.WriteToBigQuery(
