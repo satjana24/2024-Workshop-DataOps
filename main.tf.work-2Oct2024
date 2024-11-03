@@ -22,8 +22,23 @@ resource "google_storage_bucket" "bucket" {
 # BigQuery Dataset
 resource "google_bigquery_dataset" "dataset" {
  dataset_id                  = "aekanun_workshop2"
+ friendly_name              = "Workshop 2 Dataset"
+ description                = "Dataset for workshop 2"
  location                   = "US"
  delete_contents_on_destroy = true
+
+ access {
+   role          = "OWNER"
+   special_group = "projectOwners"
+ }
+ access {
+   role          = "READER"
+   special_group = "projectReaders"
+ }
+ access {
+   role          = "WRITER"
+   special_group = "projectWriters"
+ }
 }
 
 # Pub/Sub Topic
