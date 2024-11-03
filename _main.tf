@@ -56,13 +56,6 @@ resource "null_resource" "stop_dataflow_job_on_destroy" {
    when    = destroy
    command = <<-EOT
      export GOOGLE_APPLICATION_CREDENTIALS="${path.module}/stately-gist-435602-u9-e7d9d76c1b6d.json"
-     
-     # Activate service account
-     gcloud auth activate-service-account --key-file=${path.module}/stately-gist-435602-u9-e7d9d76c1b6d.json
-     
-     # Set project
-     gcloud config set project stately-gist-435602-u9
-     
      # ลบทุก jobs ที่มี prefix ที่เราใช้
      JOBS=$(gcloud dataflow jobs list \
        --region=us-central1 \
