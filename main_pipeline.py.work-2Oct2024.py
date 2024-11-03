@@ -1,5 +1,3 @@
-### โค้ดนี้ ใช้ Google Data Flow ซึ่งเป็น Cloud Service ทำ Cleansing on the fly ที่สามารถปรับแต่งข้อมูลแต่ละ event อย่างต่อเนื่องและ write ลง database (BigQuery) ในทันที
-
 import apache_beam as beam
 import logging
 from your_project_name.cleanse_data_module import cleanse_data  # Change to your project name and module
